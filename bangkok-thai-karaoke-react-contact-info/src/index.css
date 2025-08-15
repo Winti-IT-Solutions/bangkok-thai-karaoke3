@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { --ink: #07050b; }
+html, body, #root { height: 100%; }
+body { font-family: 'Kanit', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; text-shadow: 0 0 10px #00ffff, 0 0 40px #00ffff; }
+  3% { opacity: .6; }
+  6% { opacity: 1; }
+  7% { opacity: .35; }
+  8% { opacity: 1; }
+  10% { opacity: .8; }
+  13% { opacity: 1; }
+}
+.neon-brand {
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aefcff;
+  -webkit-text-stroke: 3px var(--ink);
+  text-shadow: 0 0 10px #00ffff, 0 0 40px #00ffff;
+  animation: neon-flicker 5s steps(1, end) infinite;
+}
+.thumb-strip::-webkit-scrollbar { display: none; }
+.thumb-strip { -ms-overflow-style: none; scrollbar-width: none; }
+
+@media (prefers-reduced-motion: reduce) {
+  .neon-brand { animation: none !important; }
+}
